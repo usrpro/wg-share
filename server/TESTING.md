@@ -1,3 +1,8 @@
+Set up go modules:
+````
+sudo /snap/bin/go mod download
+````
+
 Add the testing device:
 
 ````
