@@ -8,7 +8,6 @@ import (
 	"net"
 	"testing"
 
-	"github.com/usrpro/wire-directory/types"
 	"golang.zx2c4.com/wireguard/wgctrl"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
@@ -89,13 +88,13 @@ func TestRPC_Find(t *testing.T) {
 	}
 	type args struct {
 		rq []wgtypes.Key
-		rs *types.Response
+		rs *PeerMap
 	}
 	tests := []struct {
 		name    string
 		fields  fields
 		args    args
-		want    types.Response
+		want    PeerMap
 		wantErr bool
 	}{
 		{
@@ -106,9 +105,9 @@ func TestRPC_Find(t *testing.T) {
 			},
 			args: args{
 				rq: []wgtypes.Key{testKeys[0]},
-				rs: new(types.Response),
+				rs: new(PeerMap),
 			},
-			want: types.Response{
+			want: PeerMap{
 				Peers: map[wgtypes.Key]wgtypes.Peer{
 					testKeys[0]: wgtypes.Peer{
 						PublicKey:       testKeys[0],
@@ -126,9 +125,9 @@ func TestRPC_Find(t *testing.T) {
 			},
 			args: args{
 				rq: testKeys,
-				rs: new(types.Response),
+				rs: new(PeerMap),
 			},
-			want: types.Response{
+			want: PeerMap{
 				Peers: map[wgtypes.Key]wgtypes.Peer{
 					testKeys[0]: wgtypes.Peer{
 						PublicKey:       testKeys[0],

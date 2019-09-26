@@ -3,7 +3,6 @@ package server
 import (
 	"net/rpc"
 
-	"github.com/usrpro/wire-directory/types"
 	"golang.zx2c4.com/wireguard/wgctrl"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
@@ -33,8 +32,13 @@ func NewRPC(device string) (*rpc.Server, error) {
 	return s, nil
 }
 
+// PeerMap is a map of keys and peer information
+type PeerMap struct {
+	Peers map[wgtypes.Key]wgtypes.Peer
+}
+
 // Find peers by their public keys. Implements a net.RPC method.
-func (s *RPC) Find(rq []wgtypes.Key, rs *types.Response) error {
+func (s *RPC) Find(rq []wgtypes.Key, rs *PeerMap) error {
 	dev, err := s.wgc.Device(s.device)
 	if err != nil {
 		return err

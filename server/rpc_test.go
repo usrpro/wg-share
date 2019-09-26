@@ -7,7 +7,6 @@ import (
 	"net/rpc"
 	"testing"
 
-	"github.com/usrpro/wire-directory/types"
 	"golang.zx2c4.com/wireguard/wgctrl"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
@@ -53,7 +52,7 @@ func TestRPC_error_Find(t *testing.T) {
 	}
 	type args struct {
 		rq []wgtypes.Key
-		rs *types.Response
+		rs *PeerMap
 	}
 	tests := []struct {
 		name    string
