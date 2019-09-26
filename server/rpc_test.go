@@ -9,6 +9,7 @@ import (
 
 	"github.com/usrpro/wire-directory/types"
 	"golang.zx2c4.com/wireguard/wgctrl"
+	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 
 func TestNewRPC(t *testing.T) {
@@ -51,7 +52,7 @@ func TestRPC_error_Find(t *testing.T) {
 		wgc    *wgctrl.Client
 	}
 	type args struct {
-		rq types.Request
+		rq []wgtypes.Key
 		rs *types.Response
 	}
 	tests := []struct {

@@ -34,7 +34,7 @@ func NewRPC(device string) (*rpc.Server, error) {
 }
 
 // Find peers by their public keys. Implements a net.RPC method.
-func (s *RPC) Find(rq types.Request, rs *types.Response) error {
+func (s *RPC) Find(rq []wgtypes.Key, rs *types.Response) error {
 	dev, err := s.wgc.Device(s.device)
 	if err != nil {
 		return err

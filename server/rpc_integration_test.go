@@ -88,7 +88,7 @@ func TestRPC_Find(t *testing.T) {
 		wgc    *wgctrl.Client
 	}
 	type args struct {
-		rq types.Request
+		rq []wgtypes.Key
 		rs *types.Response
 	}
 	tests := []struct {
@@ -105,7 +105,7 @@ func TestRPC_Find(t *testing.T) {
 				wgc:    wgc,
 			},
 			args: args{
-				rq: types.Request{testKeys[0]},
+				rq: []wgtypes.Key{testKeys[0]},
 				rs: new(types.Response),
 			},
 			want: types.Response{
