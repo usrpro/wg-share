@@ -1,4 +1,4 @@
-module github.com/usrpro/wg-share
+module github.com/usrpro/wire-directory
 
 go 1.12
 

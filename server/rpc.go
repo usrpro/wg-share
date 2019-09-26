@@ -3,7 +3,7 @@ package server
 import (
 	"net/rpc"
 
-	"github.com/usrpro/wg-share/types"
+	"github.com/usrpro/wire-directory/types"
 	"golang.zx2c4.com/wireguard/wgctrl"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
